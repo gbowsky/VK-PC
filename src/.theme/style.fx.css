@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&subset=cyrillic');
+.root, {
+    -fx-font-smoothing-type: gray;
+}
+.vk-button {
+    -fx-background-color: #5281b9;
+    -fx-background-radius: 4px;
+    -fx-text-fill: #ffffff;
+}
+
+.post_box {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #DDD;
+    -fx-border-width:1px;
+    -fx-border-radius:4px;
+    -fx-background-radius: 4px;
+}
+.post_source_texts_box {
+    -fx-padding: 0 0 0 8;
+    -fx-alignment: CENTER_LEFT;
+}
+.post_source_name {
+    -fx-font-family: 'Roboto';
+    -fx-text-fill: #000000;
+    -fx-font-size: 14px;
+}
+.post_source_date {
+    -fx-font-family: 'Roboto';
+    -fx-text-fill: #666666;
+}
+.post_content_box {
+    -fx-padding: 8px;
+}
+
+
+.post_content_text {
+    -fx-font-family: 'Roboto';
+    -fx-text-fill: #000000;
+}
+.post_counters_box {
+    -fx-padding: 10px;
+}
+.post_counters_like {
+    -fx-font-size: 13px;
+}
+
+.main_info {
+    -fx-padding: 10px;
+}
+
+.friends_list {
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 8px;
+    -fx-alignment: CENTER_LEFT;
+}
+.friends_list_text {
+    -fx-font-family: 'Roboto';
+    -fx-padding: 0 0 0 5;
+    -fx-font-size: 13px;
+}
+
+.dialog-box {
+    -fx-padding: 4px;
+}
+.dialog-data {
+    -fx-alignment: "CENTER_LEFT";
+    -fx-padding: 0 0 0 8;
+}
+.dialog-name {
+    -fx-font-family: 'Roboto';
+    -fx-font-weight: bold;
+}
+.dialog-date {
+    -fx-font-family: 'Roboto';
+    -fx-padding: 0 0 0 4;
+    -fx-text-fill: #666666;
+}
+.dialog-last-message{
+    
+}
+
+.message_peer {
+    -fx-padding: 0 0 0 4;
+}
+
+.message_peer_text {
+    -fx-font-family: 'Roboto';
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+}
+
+.message_text {
+    -fx-font-family: 'Roboto';
+}
+
+.message_box {
+    -fx-padding: 0 0 0 4;
+}
+
+.list-view .list-cell .list-cell:empty {
+    -fx-padding: 0px ;
+}

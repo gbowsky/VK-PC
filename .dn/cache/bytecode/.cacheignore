@@ -1,6 +1,5 @@
 .debug/bootstrap.php
 .debug/preloader.php
-app/forms/about_modal.php
 app/forms/AdditionalInfo.php
 app/forms/Authentication.php
 app/forms/Dialogs.php

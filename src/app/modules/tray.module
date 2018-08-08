@@ -1,0 +1,7 @@
+{
+  "props": {
+    "disabled": false,
+    "singleton": true
+  },
+  "components": []
+}

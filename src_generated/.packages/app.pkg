@@ -1,5 +1,4 @@
 [classes]
-app\forms\about_modal
 app\forms\AdditionalInfo
 app\forms\Authentication
 app\forms\Dialogs

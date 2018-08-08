@@ -1,0 +1,27 @@
+# Ignore rules for GIT (github.com, bitbucket.com, etc.)
+
+/.dn/cache
+/.dn/ide.lock
+/.dn/tmp
+/.dn/index.json
+/.dn/backup
+
+/vendor
+/src_generated
+/src/JPHP-INF
+/src/.debug
+/build
+/build.xml
+/build.gradle
+/settings.gradle
+/cache
+/cache.ini
+/log.txt
+/news.log.txt
+/friends.log.txt
+/log.unknown.attachments.txt
+*.log
+*.pid
+*.tmp
+*.sourcemap
+news.log.txt

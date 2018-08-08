@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?import javafx.scene.*?><?import javafx.collections.*?><?import javafx.scene.layout.*?><?import javafx.scene.control.*?><?import javafx.scene.text.*?><?import javafx.scene.image.*?><?import javafx.scene.shape.*?><?import javafx.scene.paint.*?><?import javafx.scene.web.*?><?import javafx.geometry.*?><?import java.lang.*?><?import org.develnext.jphp.ext.javafx.classes.data.*?><?import org.develnext.jphp.ext.javafx.support.*?><?import org.develnext.jphp.ext.javafx.support.control.*?><?import org.develnext.jphp.ext.game.support.*?><AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" focusTraversable="false" id="" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="416" prefWidth="656" styleClass="">
+  <children>
+    <FlatButton AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" alignment="CENTER" color="#384555" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="main" layoutX="0" layoutY="0" prefHeight="496" prefWidth="656" styleClass="x-flat-button " text="" textAlignment="CENTER" textFill="#ffffff" underline="false" wrapText="false">
+      <font>
+        <Font name="Roboto" size="12"/>
+      </font>
+    </FlatButton>
+    <Data cursor="DEFAULT" enabled="1" id="data-main" visible="1"/>
+    <FragmentPane AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="48" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" alignment="CENTER" focusTraversable="false" id="fragment" layoutX="48" layoutY="0" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="416" prefWidth="608" spacing="0" styleClass="fragment-pane "/>
+    <Data content="" cursor="DEFAULT" enabled="1" id="data-fragment" visible="1"/>
+    <ImageViewEx AnchorPane.leftAnchor="4" autoSize="false" centered="false" focusTraversable="false" height="40" id="profile_mini" layoutX="4" layoutY="12" mosaic="false" mosaicGap="0" proportional="false" stretch="true" styleClass="" textFill="#000000" width="40">
+      <font>
+        <Font name="System Regular" size="12"/>
+      </font>
+    </ImageViewEx>
+    <Data cursor="DEFAULT" enabled="1" id="data-profile_mini" visible="1"/>
+    <ImageViewEx AnchorPane.leftAnchor="0" autoSize="false" centered="true" focusTraversable="false" height="40" id="news" layoutX="0" layoutY="64" mosaic="false" mosaicGap="0" proportional="false" stretch="false" styleClass="" textFill="#000000" width="48">
+      <font>
+        <Font name="System Regular" size="12"/>
+      </font>
+    </ImageViewEx>
+    <Data cursor="DEFAULT" enabled="1" id="data-news" image=".data/img/ic_menu_newsfeed_28.png" visible="1"/>
+    <Data cursor="DEFAULT" enabled="1" id="data-settings" image=".data/img/ic_settings_general.png" visible="1"/>
+    <ImageViewEx autoSize="false" centered="true" focusTraversable="false" height="40" id="friends" layoutX="0" layoutY="104" mosaic="false" mosaicGap="0" proportional="false" stretch="false" styleClass="" textFill="#000000" width="48">
+      <font>
+        <Font name="System Regular" size="12"/>
+      </font>
+    </ImageViewEx>
+    <Data cursor="DEFAULT" enabled="1" id="data-friends" image=".data/img/ic_profile_friends.png" visible="1"/>
+    <ImageViewEx autoSize="false" centered="true" focusTraversable="false" height="40" id="messages" layoutX="0" layoutY="144" mosaic="false" mosaicGap="0" proportional="false" stretch="false" styleClass="" textFill="#000000" width="48">
+      <font>
+        <Font name="System Regular" size="12"/>
+      </font>
+    </ImageViewEx>
+    <Data cursor="DEFAULT" enabled="1" id="data-messages" image=".data/img/ic_profile_status.png" visible="1"/>
+    <ImageViewEx AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" autoSize="false" centered="true" focusTraversable="false" height="24" id="settings" layoutX="8" layoutY="384" mosaic="false" mosaicGap="0" proportional="false" stretch="false" styleClass="" textFill="#000000" width="32">
+      <font>
+        <Font name="System Regular" size="12"/>
+      </font>
+    </ImageViewEx>
+  </children>
+</AnchorPane>
