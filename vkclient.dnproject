@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project author="Григорий" authorOS="Windows 10" createdAt="1533310024989" ideName="DevelNext" ideVersion="16.7.0" ideVersionHash="2017103112" name="vkclient" packageName="app" template="ide\project\templates\DefaultGuiProjectTemplate" updatedAt="1533823950277">
+<project author="Григорий" authorOS="Windows 10" createdAt="1533310024989" ideName="DevelNext" ideVersion="16.7.0" ideVersionHash="2017103112" name="vkclient" packageName="app" template="ide\project\templates\DefaultGuiProjectTemplate" updatedAt="1533840732205">
   <tree>
     <expanded>
     <path src=""/>
@@ -13,9 +13,11 @@
     </expanded>
   </tree>
   <openedFiles>
-  <file src="vkclient.dnproject"/>
+  <file selected="1" src="vkclient.dnproject"/>
     <file src="src/app/modules/AdvancedVK.php"/>
-    <file selected="1" src="src/app/forms/photoViewer.php"/>
+    <file src="src/app/forms/photoViewer.php"/>
+    <file src="src/app/modules/LongPoll.php"/>
+    <file src="src/app/modules/SimpleVK.php"/>
   </openedFiles>
   <files/>
   <behaviours>

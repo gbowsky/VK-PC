@@ -1,15 +1,4 @@
 {
   "props": [],
-  "components": {
-    "systemTray": {
-      "type": "script\\SystemTrayScript",
-      "x": 96,
-      "y": 80,
-      "props": {
-        "visible": "1",
-        "tooltip": "VK-PC",
-        "icon": ".data/img/ic_user_16.png"
-      }
-    }
-  }
+  "components": []
 }

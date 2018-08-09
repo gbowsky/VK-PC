@@ -7,7 +7,7 @@
       </font>
     </ImageViewEx>
     <Data cursor="DEFAULT" enabled="1" id="data-image" visible="1"/>
-    <ScrollPane AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" focusTraversable="false" hbarPolicy="AS_NEEDED" hvalue="0" id="container" layoutX="0" layoutY="416" prefHeight="64" prefWidth="576" styleClass="photo-bar " vbarPolicy="NEVER" vvalue="0">
+    <ScrollPane AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" focusTraversable="false" hbarPolicy="AS_NEEDED" hvalue="0" id="container" layoutX="0" layoutY="416" prefHeight="64" prefWidth="576" styleClass="scroll-pane photo-bar " vbarPolicy="NEVER" vvalue="0">
       <content>
         <AnchorPane focusTraversable="false" id="" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="64" prefWidth="568" styleClass="">
           <children>

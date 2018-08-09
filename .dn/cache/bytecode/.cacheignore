@@ -20,4 +20,3 @@ app/modules/jURL.php
 app/modules/LongPoll.php
 app/modules/MainModule.php
 app/modules/SimpleVK.php
-app/modules/tray.php

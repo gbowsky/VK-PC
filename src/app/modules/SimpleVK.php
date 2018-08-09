@@ -149,7 +149,7 @@ class SimpleVK extends AbstractModule
             }
             else 
             {
-                Logger::warn(print_r($response));
+               var_dump($response);
             }
         }
         else 

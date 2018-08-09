@@ -14,7 +14,6 @@ $app = new Application();
 
 $app->loadModules(array (
   0 => 'app\modules\AppModule',
-  1 => 'app\modules\tray',
 ));
 $app->addStyle('/.theme/style.fx.css');
 $app->launch();

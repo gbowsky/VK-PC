@@ -23,21 +23,11 @@ class LongPoll extends AbstractModule
             $ch = new jURL("https://{$server}?act=a_check&key={$key}&ts={$ts}&wait=25&mode=234&version=2");
             $resp = $ch->exec();
             $resp=json_decode($resp,1);
-            if(array_key_exists('failed', $resp)){
-                switch($resp['failed']){
-                case 1:
-                    $ts = $resp['ts'];
-                continue;
-                case 2:
-                    $data = SimpleVK::Query('messages.getLongPollServer', ['use_ssl'=>1]);
-                    $key = $data['response']['key'];
-                continue;
-                case 3:
-                    $data = SimpleVK::Query('messages.getLongPollServer', ['use_ssl'=>1]);
-                    $key = $data['response']['key'];
-                    $ts = $data['response']['ts'];
-                continue;
+            if(isset($resp)['failed']){
+                if (self::$lp_thread->isAlive == true) {
+                    self::$lp_thread->stop();
                 }
+                self::init();
             }
             $ts = $resp['ts'];
             if(count($resp['updates'])>0){
@@ -47,7 +37,18 @@ class LongPoll extends AbstractModule
             UXApplication::runLater(function () use ($data,$resp) {
                 foreach ($resp['updates'] as $id => $upd) {
                     if($upd[0]==4){
-                        #dialog form
+                        self::handle_dialog($upd);
+                    }   
+                }
+                self::init();
+            });
+        });
+        self::$lp_thread->start();
+    }
+    
+    public static function handle_dialog($upd)
+    {
+        #dialog form
                         if (app()->form('MainForm')->currentform->form == 'Dialog')
                         {
                             $id = 'msg'.$upd[3];
@@ -79,13 +80,7 @@ class LongPoll extends AbstractModule
                                 app()->form('MainForm')->currentform->lpoll_load_one($upd[1]);
                             }
                         }
-                    }   
-                }
-                self::init();
-            });
-        });
-        self::$lp_thread->start();
-    }
+    } 
     
     public static function stop()
     {
