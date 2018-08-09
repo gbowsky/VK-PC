@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?import javafx.scene.*?><?import javafx.collections.*?><?import javafx.scene.layout.*?><?import javafx.scene.control.*?><?import javafx.scene.text.*?><?import javafx.scene.image.*?><?import javafx.scene.shape.*?><?import javafx.scene.paint.*?><?import javafx.scene.web.*?><?import javafx.geometry.*?><?import java.lang.*?><?import org.develnext.jphp.ext.javafx.classes.data.*?><?import org.develnext.jphp.ext.javafx.support.*?><?import org.develnext.jphp.ext.javafx.support.control.*?><?import org.develnext.jphp.ext.game.support.*?><AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" focusTraversable="false" id="" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="296" prefWidth="304" styleClass=" ">
   <children>
-    <Button AnchorPane.leftAnchor="8" alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="button" layoutX="8" layoutY="152" prefHeight="24" prefWidth="80" style="-fx-background-color: #fff;-fx-background-radius: 4px;" styleClass="button " text="Войти" textAlignment="CENTER" underline="false" wrapText="false">
+    <ImageViewEx AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" autoSize="false" centered="true" focusTraversable="false" height="88" id="image" layoutX="0" layoutY="16" mosaic="false" mosaicGap="0" proportional="false" stretch="false" styleClass="" textFill="#000000" width="304">
+      <font>
+        <Font name="System Regular" size="12"/>
+      </font>
+    </ImageViewEx>
+    <Data cursor="DEFAULT" enabled="1" id="data-image" image=".data/img/ic_logo_vk_24.png" visible="1"/>
+    <TextField alignment="CENTER_LEFT" editable="true" focusTraversable="true" id="edit" layoutX="24" layoutY="120" prefColumnCount="12" prefHeight="39" prefWidth="256" promptText="Логин" text="">
+      <styleClass xmlns:fx="http://javafx.com/fxml">
+        <String fx:value="text-input"/>
+        <String fx:value="text-field"/>
+        <String fx:value="vk-edit-spec"/>
+      </styleClass>
       <font>
         <Font name="System Regular" size="14"/>
       </font>
-    </Button>
-    <Data cursor="DEFAULT" enabled="1" id="data-button" visible="1"/>
-    <PasswordField alignment="CENTER_LEFT" editable="true" focusTraversable="true" id="passwordField" layoutX="8" layoutY="104" prefColumnCount="12" prefHeight="32" prefWidth="288" promptText="Пароль" style="-fx-background-color: #fff;-fx-background-radius: 4px;" text="">
+    </TextField>
+    <Data cursor="DEFAULT" enabled="1" id="data-edit" visible="1"/>
+    <PasswordField alignment="CENTER_LEFT" editable="true" focusTraversable="true" id="passwordField" layoutX="24" layoutY="168" prefColumnCount="12" prefHeight="24" prefWidth="256" promptText="Пароль" text="">
       <font>
         <Font name="System Regular" size="14"/>
       </font>
@@ -15,20 +26,15 @@
         <String fx:value="text-input"/>
         <String fx:value="text-field"/>
         <String fx:value="password-field"/>
+        <String fx:value="vk-edit-spec"/>
       </styleClass>
     </PasswordField>
     <Data cursor="DEFAULT" enabled="1" id="data-passwordField" visible="1"/>
-    <TextField alignment="CENTER_LEFT" editable="true" focusTraversable="true" id="edit" layoutX="8" layoutY="64" prefColumnCount="12" prefHeight="32" prefWidth="288" promptText="Логин" style="-fx-background-color: #fff;-fx-background-radius: 4px;" styleClass="text-input text-field " text="">
+    <Button alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="button" layoutX="96" layoutY="224" prefHeight="24" prefWidth="112" styleClass="button vk-edit-spec " text="Вход" textAlignment="CENTER" underline="false" wrapText="false">
       <font>
         <Font name="System Regular" size="14"/>
       </font>
-    </TextField>
-    <Data cursor="DEFAULT" enabled="1" id="data-edit" visible="1"/>
-    <ImageViewEx autoSize="true" centered="true" focusTraversable="false" height="48" id="image" layoutX="8" layoutY="8" mosaic="false" mosaicGap="0" proportional="false" stretch="false" styleClass="" textFill="#000000" width="48">
-      <font>
-        <Font name="System Regular" size="12"/>
-      </font>
-    </ImageViewEx>
-    <Data cursor="DEFAULT" enabled="1" id="data-image" image=".data/img/ic_logo_vk_242.png" visible="1"/>
+    </Button>
+    <Data cursor="DEFAULT" enabled="1" id="data-button" visible="1"/>
   </children>
 </AnchorPane>

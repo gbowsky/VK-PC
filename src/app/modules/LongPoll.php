@@ -17,30 +17,31 @@ class LongPoll extends AbstractModule
         $key = $data['response']['key'];
         $ts = $data['response']['ts'];
 
-        self::$lp_thread=new Thread(function() use($data, $server, $key, $ts){
+        self::$lp_thread=new Thread(function() use($data, $server, $key, $ts)
+        {
             while(true){
             $ch = new jURL("https://{$server}?act=a_check&key={$key}&ts={$ts}&wait=25&mode=234&version=2");
-                $resp = $ch->exec();
-        $resp=json_decode($resp,1);
-        if(array_key_exists('failed', $resp)){
-            switch($resp['failed']){
-            case 1:
-            $ts = $resp['ts'];
-            continue;
-            case 2:
-            $data = SimpleVK::Query('messages.getLongPollServer', ['use_ssl'=>1]);
-            $key = $data['response']['key'];
-            continue;
-            case 3:
-            $data = SimpleVK::Query('messages.getLongPollServer', ['use_ssl'=>1]);
-            $key = $data['response']['key'];
-            $ts = $data['response']['ts'];
-            continue;
+            $resp = $ch->exec();
+            $resp=json_decode($resp,1);
+            if(array_key_exists('failed', $resp)){
+                switch($resp['failed']){
+                case 1:
+                    $ts = $resp['ts'];
+                continue;
+                case 2:
+                    $data = SimpleVK::Query('messages.getLongPollServer', ['use_ssl'=>1]);
+                    $key = $data['response']['key'];
+                continue;
+                case 3:
+                    $data = SimpleVK::Query('messages.getLongPollServer', ['use_ssl'=>1]);
+                    $key = $data['response']['key'];
+                    $ts = $data['response']['ts'];
+                continue;
+                }
             }
-        }
-        $ts = $resp['ts'];
-        if(count($resp['updates'])>0){
-                    break;
+            $ts = $resp['ts'];
+            if(count($resp['updates'])>0){
+                        break;
                 }    
             }
             UXApplication::runLater(function () use ($data,$resp) {
@@ -75,14 +76,12 @@ class LongPoll extends AbstractModule
                         {    
                             if (app()->form('MainForm')->currentform->peer_id == $upd[3])
                             {
-                                var_dump($upd);
                                 app()->form('MainForm')->currentform->lpoll_load_one($upd[1]);
                             }
                         }
                     }   
                 }
                 self::init();
-                return;
             });
         });
         self::$lp_thread->start();

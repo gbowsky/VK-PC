@@ -8,10 +8,31 @@ class Authentication extends AbstractForm
 {
 
     /**
+     * @event show 
+     */
+    function doShow(UXWindowEvent $e = null)
+    {    
+        if (SimpleVK::checkAuth() == true)
+        {
+            $this->loadForm(MainForm);
+        }
+    }
+
+    /**
+     * @event edit.step 
+     */
+    function doEditStep(UXEvent $e = null)
+    {    
+        $this->center($this->edit);
+        $this->center($this->passwordField);
+        $this->center($this->button);
+    }
+
+    /**
      * @event button.action 
      */
     function doButtonAction(UXEvent $e = null)
-    {
+    {    
         if (SimpleVK::createAuth($this->edit->text, $this->passwordField->text) == true)
         {
             app()->form('MainForm')->loadFragmentForm("app\\forms\\".News);
@@ -25,15 +46,18 @@ class Authentication extends AbstractForm
     }
 
     /**
-     * @event show 
+     * @event passwordField.keyDown-Enter 
      */
-    function doShow(UXWindowEvent $e = null)
+    function doPasswordFieldKeyDownEnter(UXKeyEvent $e = null)
     {    
-        if (SimpleVK::checkAuth() == true)
-        {
-            $this->loadForm(MainForm);
-        }
+        $this->doButtonAction();
     }
+    
+    function center($obj)
+    {
+        $obj->x = (app()->form(MainForm)->fragment->width/2 - $obj->width/2);
+    }
+
 
 
 }

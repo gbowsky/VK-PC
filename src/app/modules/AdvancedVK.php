@@ -336,10 +336,10 @@ class AdvancedVK extends AbstractModule
             {
                 $post_attachment_photo = new UXImageView();
                 $post_attachment_photo->preserveRatio = true;
-                AdvancedVK::cache(arr::last($attach['photo']['sizes'])['url'], $post_attachment_photo);
+                AdvancedVK::cache($attach['photo']['sizes'][3]['url'], $post_attachment_photo);
                 $post_attachment_photo->fitWidth = (($pref_width-10)/3);  
-                $post_attachment_photo->on('click', function () use ($attach) {
-                    app()->form('photoViewer')->call_photo_view($attach);
+                $post_attachment_photo->on('click', function () use ($attach, $attachment_obj) {
+                    app()->form('photoViewer')->loadAllAttachmentsPhotos($attachment_obj, $attach);
                 });
                 $post_attachment_photo_carousel->add($post_attachment_photo);
             }

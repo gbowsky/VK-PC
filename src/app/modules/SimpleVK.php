@@ -137,10 +137,8 @@ class SimpleVK extends AbstractModule
             {
                 app()->module(SimpleVK)->ini->set('token', null);
                 self::$accessToken = null;
-                app()->hideForm(MainForm);
-                app()->form(MainForm)->free();
-                app()->showFormAndWait(Authentication);
-                app()->showForm(MainForm);
+                app()->form(fatal)->error = $response;
+                app()->showFormAndWait(fatal);
             }
             elseif ($response['error']['error_code'] == 6)
             {
