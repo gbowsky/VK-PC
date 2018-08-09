@@ -1,6 +1,7 @@
 <?php
 namespace app\forms;
 
+use facade\Json;
 use std, gui, framework, app;
 
 
@@ -28,7 +29,7 @@ class Profile extends AbstractForm
     
     function user_page($user_id = '')
     {
-        $fields = 'verified, sex, bdate, city, photo_50, photo_100, online, status, counters, last_seen';
+        $fields = 'verified, sex, bdate, city, photo_50, photo_100, online, status, counters, last_seen, is_friend, friend_status,can_send_friend_request';
         if ($user_id == '')
         {
             $user_data = SimpleVK::Query('users.get', ['fields'=>$fields])['response'][0];
@@ -64,6 +65,33 @@ class Profile extends AbstractForm
         if ($user_data['counter']['followers'] != '')
         {
             $this->followers->text = $user_data['counter']['followers'].' подписчиков';
+        }
+        if ($user_data['can_send_friend_request'] == 1)
+        {
+            if ($user_data['id'] != $GLOBALS['user']['id'])
+            {
+                $add_friend_button = new UXFlatButton;
+                $add_friend_button->classesString = 'vk-button';
+                if ($user_data['is_friend'] == 1)
+                {
+                    $add_friend_button->text = 'Удалить из друзей';
+                    $add_friend_button->on('click', function () use ($user_data,$add_friend_button) {
+                        SimpleVK::Query('friends.delete', ['user_id'=>$user_data['id']]);
+                        app()->getForm('MainForm')->loadFragmentForm("app\\forms\\" . Profile);
+                        app()->getForm('MainForm')->currentform->user_page($user_data['id']);
+                    });
+                }
+                else 
+                {
+                    $add_friend_button->text = 'Добавить в друзья';
+                    $add_friend_button->on('click', function () use ($user_data,$add_friend_button) {
+                        SimpleVK::Query('friends.add', ['user_id'=>$user_data['id']]);
+                        $add_friend_button->text = 'Заявка отправлена';
+                    });
+                }
+                
+                $this->hbox->add($add_friend_button);
+            }
         }
         $user_wall = SimpleVK::Query('wall.get', ['owner_id'=>$user_id,'extended'=>1]);
         AdvancedVK::generate_news($user_wall,$this->user_posts->items);

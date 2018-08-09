@@ -198,13 +198,27 @@ class AdvancedVK extends AbstractModule
             $post_counters_like->on('click',function () use ($obj, $post_counters_like) {
                 if ($obj['likes']['user_likes'] == 0)
                 {
-                    SimpleVK::Query('likes.add', ['type'=>post,'owner_id'=>$obj['source_id'],'item_id'=>$obj['post_id']]);
+                    if (isset($obj['source_id']) || isset($obj['post_id']))
+                    {
+                        SimpleVK::Query('likes.add', ['type'=>'post','owner_id'=>$obj['source_id'],'item_id'=>$obj['post_id']]);
+                    }
+                    else 
+                    {
+                        SimpleVK::Query('likes.add', ['type'=>'post','owner_id'=>$obj['owner_id'],'item_id'=>$obj['id']]);
+                    }
                     $post_counters_like->text = AdvancedVK::bigValue($obj['likes']['count']+1).' ';
                     $obj['likes']['user_likes'] = 1;
                 }
                 else 
                 {
-                    SimpleVK::Query('likes.delete', ['type'=>post,'owner_id'=>$obj['source_id'],'item_id'=>$obj['post_id']]);
+                    if (isset($obj['source_id']) || isset($obj['post_id']))
+                    {
+                        SimpleVK::Query('likes.delete', ['type'=>'post','owner_id'=>$obj['source_id'],'item_id'=>$obj['post_id']]);
+                    }
+                    else 
+                    {
+                        SimpleVK::Query('likes.delete', ['type'=>'post','owner_id'=>$obj['owner_id'],'item_id'=>$obj['id']]);
+                    }
                     $post_counters_like->text = AdvancedVK::bigValue($obj['likes']['count']).' ';
                     $obj['likes']['user_likes'] = 0;
                 }
@@ -334,14 +348,24 @@ class AdvancedVK extends AbstractModule
                 if ($attach['doc']['type'] == 3)
                 {
                     $post_attachment_gif = new UXImageView();
+                    $post_attachment_gif_text = new UXLabel('GIF');
                     $post_attachment_gif->preserveRatio = true;
                     AdvancedVK::cache(arr::last($attach['doc']['preview']['photo']['sizes'])['src'], $post_attachment_gif);
                     $post_attachment_gif->fitWidth = (($pref_width-10)/3);  
                     $post_attachment_gif->on('click', function () use ($attach) {
                         app()->form('gifViewer')->call_gif_view($attach['doc']['preview']['video']['src']);
                     });
-                    $post_attachment_photo_carousel->add($post_attachment_gif);
+                    $post_gif_box = new UXVBox([$post_attachment_gif_text,$post_attachment_gif]);
+                    $post_attachment_photo_carousel->add($post_gif_box);
                 }
+            }
+            elseif ($attach['type'] == 'sticker')
+            {
+                $post_attachment_sticker = new UXImageView;
+                $post_attachment_sticker->size = [128,128];
+                $post_attachment_sticker->preserveRatio = true;
+                AdvancedVK::cache(arr::last($attach['sticker']['images_with_background'])['url'], $post_attachment_sticker);
+                $attach_content->add($post_attachment_sticker);
             }
         }
         

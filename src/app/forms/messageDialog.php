@@ -43,9 +43,9 @@ class messageDialog extends AbstractForm
         }
     }
     
-    function lpoll_load_one()
+    function lpoll_load_one($message_id)
     {
-        $messages = SimpleVK::Query('messages.getHistory', ['peer_id'=>$this->peer_id,'count'=>1]);
+        $messages = SimpleVK::Query('messages.getById', ['message_ids'=>$message_id]);
         foreach ($messages['response']['items'] as $msg)
         {
             $this->listView->items->add($this->render_message($msg));
@@ -80,9 +80,12 @@ class messageDialog extends AbstractForm
         });
         $message_box->add($peer_name);
         $message_main->add($message_box);
-        if (isset($msg_object['text']))
+        if ($msg_object['text'] != '')
         {
             $message_text = new UXLabel($msg_object['text']);
+            $message_text->maxWidth = 520;
+            $message_text->wrapText = true;
+            $message_text->classesString = 'message_text';
             $message_box->add($message_text);
         }
         if (isset($msg_object['attachments']))
@@ -104,7 +107,6 @@ class messageDialog extends AbstractForm
         
         $message_main->classesString = 'message_main';
         $message_box->classesString = 'message_box';
-        $message_text->classesString = 'message_text';
         $peer_name->classesString = 'message_peer_text';
         return $message_main;
     }

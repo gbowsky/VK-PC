@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project author="Григорий" authorOS="Windows 10" createdAt="1533310024989" ideName="DevelNext" ideVersion="16.7.0" ideVersionHash="2017103112" name="vkclient" packageName="app" template="ide\project\templates\DefaultGuiProjectTemplate" updatedAt="1533727504630">
+<project author="Григорий" authorOS="Windows 10" createdAt="1533310024989" ideName="DevelNext" ideVersion="16.7.0" ideVersionHash="2017103112" name="vkclient" packageName="app" template="ide\project\templates\DefaultGuiProjectTemplate" updatedAt="1533801437358">
   <tree>
     <expanded>
     <path src=""/>
+      <path src="/cache"/>
       <path src="/src"/>
       <path src="/src/.data"/>
-      <path src="/src/.data/img"/>
       <path src="/src/.theme"/>
       <path src="/src/app"/>
       <path src="/src/app/forms"/>
@@ -15,7 +15,9 @@
   </tree>
   <openedFiles>
   <file src="vkclient.dnproject"/>
-    <file selected="1" src="src/app/forms/Dialogs.php"/>
+    <file selected="1" src="src/app/forms/Profile.php"/>
+    <file src="src/app/forms/messageDialog.php"/>
+    <file src="src/app/modules/LongPoll.php"/>
   </openedFiles>
   <files/>
   <behaviours>

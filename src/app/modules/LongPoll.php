@@ -75,7 +75,8 @@ class LongPoll extends AbstractModule
                         {    
                             if (app()->form('MainForm')->currentform->peer_id == $upd[3])
                             {
-                                app()->form('MainForm')->currentform->lpoll_load_one();
+                                var_dump($upd);
+                                app()->form('MainForm')->currentform->lpoll_load_one($upd[1]);
                             }
                         }
                     }   
