@@ -13,3 +13,4 @@ VK-PC :
 and etc.
 ______
 > *Future updates not currently planned*, but you can leave your suggestion at [GitHub Issues](https://github.com/gbowsky/VK-PC/issues).
+### [Download](https://github.com/gbowsky/VK-PC/releases)
